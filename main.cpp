@@ -1,29 +1,42 @@
-#include <iostream>
+#include<iostream>
+#include<stdio.h>
+#include<cstring>
 using namespace std;
-const int size = 100;
- void getArray(double [], int&);
-void printArray(const double [], const int);
-int main (){
-double a[size];
-int n;
-getArray(a, n);
-cout<< "The array has" << n<<" elements.\nTheir sum is: \n";
-printArray(a,n);
-return 0;
-}
-void getArray(double a[], int& n)
-{
-     n =0;
-cout <<"Enter data. Terminate with 0:\n";
-for (n = 0; n < size; n++) {
-cout << n << " ";
-cin >> a[n];
-if (a[n]==0) break;
 
-};
-} void printArray(const double a[], const int n){
-    int z=0;
-for (int i = 0; i < n;i++)
-    z+=a[i];
-cout << z<<endl;
+int main()
+{
+  char str[200], ch;
+int len, i, asc_val;
+cout<<"Enter the text: ";
+ cin.getline(str,200,'0');
+ len = strlen(str);
+for(i=0; i<len; i++)
+ {
+ch = str[i];
+ if(i==0)
+{
+asc_val = ch;
+if(asc_val>=97 && asc_val<=122)
+ {
+ asc_val = asc_val-32;
+ ch = asc_val;
+str[i] = ch;
+ }
+}
+ if(ch==' ')
+{
+ch = str[i+1];
+asc_val = ch;
+ if(asc_val>=97 && asc_val<=122)
+{
+asc_val = asc_val-32;
+ch = asc_val;
+str[i+1] = ch;
+ }
+}
+}
+
+cout<<"\nThe new string is:\n\n";
+cout<<str; cout<<endl;
+    return 0;
 }
